@@ -1,0 +1,31 @@
+{
+  "name": "element-rendering-webpack-loader",
+  "version": "1.0.8",
+  "description": "",
+  "main": "./dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextdoorUncleLiu/element-rendering-webpack-loader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nextdoorUncleLiu/element-rendering-webpack-loader/issues"
+  },
+  "homepage": "https://github.com/nextdoorUncleLiu/element-rendering-webpack-loader#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/parser": "^7.14.1",
+    "@babel/traverse": "^7.14.0",
+    "@babel/types": "^7.14.1",
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "fs": "0.0.1-security",
+    "path-browserify": "^1.0.1",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.7.0"
+  }
+}
