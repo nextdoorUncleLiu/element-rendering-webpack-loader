@@ -1,6 +1,6 @@
 {
   "name": "element-rendering-webpack-loader",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {

@@ -18,7 +18,6 @@ function UpdateAssets(asset) {
     traverse(ast, {
       JSXElement(nodePath) {
         if (nodePath.node.type === 'JSXElement' && nodePath.node.openingElement.name.name === 'img') {
-          // console.log(nodePath.node)
           return
         }
         updateAttr(nodePath.node);
@@ -35,28 +34,28 @@ function updateAttr(node) {
   if (node.type === 'JSXElement') {
     let { openingElement, children } = node;
     let name = openingElement.name.name || openingElement.type
-    let className = openingElement.attributes.some(attr => {
+    let className = openingElement.attributes.filter(attr => {
       if (attr.type === 'JSXSpreadAttribute') return false
       return /class(Name)?/.test(attr.name.name)
     })
-    if (className) {
+    if (className.length) {
       name = className[0].value.value
     }
     if (!openingElement) return
-    const elementtimingList = openingElement.attributes.some(attr => {
+    const elementtimingList = openingElement.attributes.filter(attr => {
       if (attr.type !== 'JSXSpreadAttribute' && attr.name.name === 'elementtiming') {
         return true
       }
     })
-    if (!elementtimingList) {
+    if (!elementtimingList.length) {
       openingElement.attributes.push(addElementttiming(name + '-' + Math.ceil(Math.random() * 100000)));
     }
-    const markList = openingElement.attributes.some(attr => {
+    const markList = openingElement.attributes.filter(attr => {
       if (attr.type !== 'JSXSpreadAttribute' && attr.name.name === 'data-mark') {
         return true
       }
     })
-    if (!markList) {
+    if (!markList.length) {
       openingElement.attributes.push(addMark());
     }
     children.map(childNode => updateAttr(childNode));
